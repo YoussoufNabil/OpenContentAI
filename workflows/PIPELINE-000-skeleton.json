@@ -1,0 +1,318 @@
+{
+  "name": "PIPELINE-000-skeleton",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'INGEST']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -256,
+        -32
+      ],
+      "id": "6d4d7196-192f-4070-addc-f2c86422b325",
+      "name": "INGEST"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'SCRIPT']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -16,
+        -32
+      ],
+      "id": "f351c188-edb3-4688-8911-8ece8d7ac124",
+      "name": "SCRIPT"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'FACT_CHECK']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        176,
+        -32
+      ],
+      "id": "d0624ed6-1375-4d1a-86a4-815aa6efd25d",
+      "name": "FACT_CHECK"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'SCENES']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        384,
+        -32
+      ],
+      "id": "6a25a5ce-6926-4fb6-8d23-bdf710b32743",
+      "name": "SCENES"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'VOICE']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        576,
+        -32
+      ],
+      "id": "38d166bd-650a-4f6b-a960-561d2b2f2167",
+      "name": "VOICE"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'VISUALS']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -736,
+        240
+      ],
+      "id": "584c1cbc-e1ca-4799-872a-0c1ac1d7fb42",
+      "name": "VISUALS"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'RENDER']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -528,
+        240
+      ],
+      "id": "19c3ef37-a6fe-4ff6-9431-db89dfafb63b",
+      "name": "RENDER"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'QA']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        240
+      ],
+      "id": "e08b8abf-5268-4c44-be08-b0ee0f699166",
+      "name": "QA"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'REVIEW']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        240
+      ],
+      "id": "b291975a-e7d3-4806-bc4a-a9fac94ed540",
+      "name": "REVIEW"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'PUBLISH']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        96,
+        240
+      ],
+      "id": "1ccfcc9d-b51c-4e51-a507-e4d787e28f91",
+      "name": "PUBLISH"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({\n  json: {\n    ...item.json,\n    pipeline: [...(item.json.pipeline || []), 'ANALYZE']\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        304,
+        240
+      ],
+      "id": "364f6765-e625-4556-897e-17aa5fb0179b",
+      "name": "ANALYZE"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: {} }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -480,
+        -32
+      ],
+      "id": "3c9e954e-8a2e-481f-a218-66ffe0f6111a",
+      "name": "Init"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -736,
+        -32
+      ],
+      "id": "45ca60bd-942c-4bb5-848a-aa47eac01ccb",
+      "name": "Déclenchement manuel"
+    }
+  ],
+  "connections": {
+    "Init": {
+      "main": [
+        [
+          {
+            "node": "INGEST",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "INGEST": {
+      "main": [
+        [
+          {
+            "node": "SCRIPT",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SCENES",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SCRIPT": {
+      "main": [
+        [
+          {
+            "node": "FACT_CHECK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FACT_CHECK": {
+      "main": [
+        [
+          {
+            "node": "SCENES",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SCENES": {
+      "main": [
+        [
+          {
+            "node": "VOICE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VOICE": {
+      "main": [
+        [
+          {
+            "node": "VISUALS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VISUALS": {
+      "main": [
+        [
+          {
+            "node": "RENDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RENDER": {
+      "main": [
+        [
+          {
+            "node": "QA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "QA": {
+      "main": [
+        [
+          {
+            "node": "REVIEW",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REVIEW": {
+      "main": [
+        [
+          {
+            "node": "PUBLISH",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PUBLISH": {
+      "main": [
+        [
+          {
+            "node": "ANALYZE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Déclenchement manuel": {
+      "main": [
+        [
+          {
+            "node": "Init",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": [],
+  "tags": []
+}

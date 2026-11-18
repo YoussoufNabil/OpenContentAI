@@ -1,0 +1,58 @@
+# OpenContentAI - environnement local minimal
+# Démarrage par défaut : n8n uniquement.
+# Ollama est optionnel et ne démarre qu'avec le profil "ia-locale".
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: opencontentai-n8n
+    restart: unless-stopped
+    init: true
+    ports:
+      # Interface accessible uniquement depuis ce PC (pas depuis le réseau local).
+      - "127.0.0.1:${N8N_PORT:-5678}:5678"
+    environment:
+      N8N_HOST: localhost
+      N8N_PORT: 5678
+      N8N_PROTOCOL: http
+      N8N_SECURE_COOKIE: "false"
+      GENERIC_TIMEZONE: ${GENERIC_TIMEZONE:-Africa/Dakar}
+      TZ: ${GENERIC_TIMEZONE:-Africa/Dakar}
+      N8N_DEFAULT_LOCALE: fr
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+      N8N_RUNNERS_TASK_TIMEOUT: 300
+      # À renseigner localement uniquement lorsqu'un webhook HTTPS public est nécessaire.
+      WEBHOOK_URL: ${WEBHOOK_URL:-}
+    volumes:
+      - n8n_data:/home/node/.n8n
+    networks:
+      - opencontentai
+    cpus: 1.0
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: opencontentai-ollama
+    profiles:
+      - ia-locale
+    restart: "no"
+    environment:
+      # Écoute sur le réseau Docker pour que n8n puisse joindre le service.
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_KEEP_ALIVE: 5m
+      OLLAMA_NUM_PARALLEL: 1
+      OLLAMA_MAX_LOADED_MODELS: 1
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - opencontentai
+    cpus: 3.0
+    # Pas de port publié sur Windows : n8n communique avec Ollama sur le réseau Docker.
+    # Sur un hôte de 8 Go de RAM, ne lancer un modèle qu'après mesure de la mémoire disponible.
+
+volumes:
+  n8n_data:
+  ollama_data:
+
+networks:
+  opencontentai:
+    driver: bridge

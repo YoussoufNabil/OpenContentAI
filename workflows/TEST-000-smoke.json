@@ -1,0 +1,65 @@
+{
+  "name": "TEST-000-smoke",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "3212c516-4732-418a-ac91-7c2a6238eb36",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c1f1020-fad4-47e2-b95b-870c73df7773",
+              "name": "message",
+              "value": "OpenContentAI fonctionne",
+              "type": "string"
+            },
+            {
+              "id": "2caefe3a-2c9c-469b-a378-300f96c11aef",
+              "name": "timestamp",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "bcf0e767-e510-4141-9413-6df2944547f1",
+      "name": "TEST-000-smoke"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "TEST-000-smoke",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "nodeGroups": [],
+  "tags": []
+}

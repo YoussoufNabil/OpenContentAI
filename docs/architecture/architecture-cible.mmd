@@ -1,0 +1,43 @@
+flowchart TB
+  subgraph PROFILS["Profils éditoriaux"]
+    TECH["TECH — réseaux, cybersécurité, cloud, Linux, IA"]
+    SPORT["SPORT — football, sport, récits et analyses originales"]
+    STORIES["STORIES — fictions, histoires réelles, mystères"]
+  end
+
+  subgraph LOCAL["Poste local — Windows 11 Pro"]
+    subgraph WSL["WSL2 + Docker Desktop"]
+      N8N["n8n — orchestration
+Statut : à redéployer dans la V1"]
+      CORE["Moteur de contenu
+Scripts · scènes · métadonnées · QA"]
+      MEDIA["Adaptateurs médias
+LLM · TTS · visuels · vidéo · FFmpeg"]
+      STORE[("Données locales
+projets · assets · exports")]
+      N8N --> CORE --> MEDIA
+      CORE <--> STORE
+    end
+  end
+
+  TG["Telegram Bot
+Test d'écho réussi le 28/09/2026"]
+  YT["YouTube
+Publication à intégrer"]
+  TT["TikTok
+Publication à intégrer"]
+
+  TECH --> N8N
+  SPORT --> N8N
+  STORIES --> N8N
+  MEDIA --> TG
+  TG -->|"Approbation humaine obligatoire"| N8N
+  N8N -->|"Après approbation"| YT
+  N8N -->|"Après approbation"| TT
+
+  classDef verified fill:#dff4e8,stroke:#3c9a68,color:#145b37,stroke-width:2px;
+  classDef pending fill:#fff1d8,stroke:#d09a37,color:#775000,stroke-width:2px;
+  classDef planned fill:#edf1f6,stroke:#9aaabd,color:#45596d,stroke-width:1.5px;
+  class N8N pending;
+  class TG verified;
+  class YT,TT,CORE,MEDIA planned;

@@ -1,0 +1,52 @@
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Données n8n et états locaux
+.n8n/
+n8n-data/
+*.sqlite
+*.sqlite3
+
+# Modèles IA (ne jamais versionner les poids)
+models/
+*.safetensors
+*.gguf
+*.ckpt
+*.pth
+*.pt
+*.bin
+
+# Médias produits et données de travail
+projects/
+temp/
+published/
+archive/
+OpenContentAI-Data/
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.srt
+
+# Python et environnements virtuels
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Système et éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Journaux
+*.log
+logs/
