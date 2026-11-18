@@ -91,7 +91,7 @@ La présence d'un fichier dans le dépôt ne garantit pas à elle seule que ce f
 | 2 | Vérification Docker Desktop / Engine | Terminé |
 | 3 | Test `hello-world` | Terminé |
 | 4 | Vérification de WSL2 (version par défaut 2) | Terminé |
-| 5 | Vérifier si `%UserProfile%\.wslconfig` existe et lire son contenu avant modification | **Étape en cours** |
+| 5 | Vérifier si `%UserProfile%\.wslconfig` existe et lire son contenu avant modification | Terminé |
 | 6 | Appliquer les limites WSL2 si le fichier et l'environnement le permettent | À faire |
 | 7 | Vérifier Resource Saver dans Docker Desktop | À faire |
 | 8 | Préparer l'arborescence locale des données | À faire |
