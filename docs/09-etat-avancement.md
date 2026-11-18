@@ -92,12 +92,12 @@ La présence d'un fichier dans le dépôt ne garantit pas à elle seule que ce f
 | 3 | Test `hello-world` | Terminé |
 | 4 | Vérification de WSL2 (version par défaut 2) | Terminé |
 | 5 | Vérifier si `%UserProfile%\.wslconfig` existe et lire son contenu avant modification | Terminé |
-| 6 | Appliquer les limites WSL2 si le fichier et l'environnement le permettent | À faire |
-| 7 | Vérifier Resource Saver dans Docker Desktop | À faire |
-| 8 | Préparer l'arborescence locale des données | À faire |
-| 9 | Faire un premier démarrage contrôlé de n8n avec le Compose public | À faire |
-| 10 | Importer et retester le workflow Telegram assaini | À faire |
-| 11 | Tester les workflows smoke et Ollama (ce dernier seulement si les ressources le permettent) | À faire |
+| 6 | Appliquer les limites WSL2 si le fichier et l'environnement le permettent | Terminé |
+| 7 | Vérifier Resource Saver dans Docker Desktop | Terminé |
+| 8 | Préparer l'arborescence locale des données | Terminé |
+| 9 | Faire un premier démarrage contrôlé de n8n avec le Compose public | Terminé |
+| 10 | Importer et retester le workflow Telegram assaini | Terminé |
+| 11 | Tester les workflows smoke et Ollama (ce dernier seulement si les ressources le permettent) | Terminé |
 | 12 | Construire les validations Telegram avec boutons et états | À faire |
 | 13 | Intégrer la publication YouTube puis TikTok | À faire |
 | 14 | Ajouter les profils TECH, SPORT et STORIES au moteur | À faire |
